@@ -14,7 +14,7 @@
 
 <body>
     <header class ="header">
-        <a id=leaderboard>View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
+        <a id=leaderboard onclick="highScoreGenerator()">View Highscores <i class="fas fa-hand-point-left fa-lg"></i>
         </i></a> 
         <div class = "div-right">
             <span>Timer:</span>
@@ -28,12 +28,23 @@
 
     </header>
     <main>
-    <div id="avishkar1" class="quiz-container">
-      <h2>helloq wanna start quiz please click on below button</h2>
+      
+    <div id="avishkar1" class="quiz-container" >
+      <h2>hello wanna start quiz please click on below button</h2>
            
            
       <button type="button" id="avishkar" >Click Me!</button>
     </div>  
+
+    <div id="highScore" class="quiz-container" style="display: none;">
+      
+      <h1 id="finalScore">High Scores</h1>
+      <ol id="highScoresList"></ol>
+      <a class="btn" href="/">Go Home</a>
+      <a class="btn" href="/" onclick="clearScore()">clear highScore</a>
+           
+          
+    </div>
 
 <div class="quiz-container" id="quiz">
     <div class="quiz-header">

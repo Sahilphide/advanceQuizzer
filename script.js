@@ -52,12 +52,21 @@ const d_text = document.getElementById('d_text')
 const ansStatus = document.getElementById('ansStatus')
 const submitBtn = document.getElementById('submit')
 
+const startbtn=document.getElementById('avishkar')
+const startdiv=document.getElementById('avishkar1')
+
+const highScoresList = document.getElementById("highScoresList");
+
 
 let currentQuiz = 0
 let score = 0
 
 
 const highScores = JSON.parse(localStorage.getItem('highScores')) || [];
+
+var minutesLabel = document.getElementById("minutes");
+var secondsLabel = document.getElementById("seconds");
+var totalSeconds = 0;
 
 
 
@@ -133,9 +142,7 @@ submitBtn.addEventListener('click', () => {
 
 // timer function
 
-var minutesLabel = document.getElementById("minutes");
-var secondsLabel = document.getElementById("seconds");
-var totalSeconds = 0;
+
 
 
 function setTime()
@@ -187,8 +194,7 @@ start =()=>{
     quiz.style.display = "none";
   } 
 
-  const startbtn=document.getElementById('avishkar')
-  const startdiv=document.getElementById('avishkar1')
+
   startbtn.onclick=function() {
     loadQuiz() 
     setInterval(setTime, 1000);
@@ -202,8 +208,33 @@ start =()=>{
 
 start()
 
-/////////////
 
+/////////////
+// high score
+highScoreGenerator = ()=>{
+
+  if(highScores.length !==0){
+    const scorediv=document.getElementById('highScore')
+    quiz.style.display = "none";
+    startdiv.style.display = "none";
+    scorediv.style.display = "block"
+
+    highScoresList.innerHTML = highScores
+  .map(score => {
+    return `<li class="high-score">${score.name} - ${score.score}</li>`;
+  })
+  .join("");
+
+  }
+  else{
+    alert("no entry found")
+  }
+}
+
+// clear score
+clearScore = ()=>{
+  localStorage.clear();
+}
 
 
  
