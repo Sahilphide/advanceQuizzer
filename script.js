@@ -95,6 +95,7 @@ function loadQuiz() {
 
 function deselectAnswers() {
     answerEls.forEach(answerEl => answerEl.checked = false)
+    // ansStatus.style.display = "none"
     
 }
 
@@ -114,9 +115,12 @@ submitBtn.addEventListener('click', () => {
     if(answer) {
        if(answer === questions[currentQuiz].answer) {
            score++
+          //  ansStatus.style.display = "inline"
+
            ansStatus.innerText = "correct";
 
        }else{
+        // ansStatus.style.display = "inline"
            ansStatus.innerText  = "incorrect";
        }
 
@@ -166,11 +170,10 @@ function pad(val)
 }
 
 
-// // function to store input (thusrday work)
  
 addPlayer = ()=>{
 
-  var value1 = document.getElementById("lfname").value;  //get the value of an element by it's id
+  var value1 = document.getElementById("lfname").value;  
   if(value1===""){
     alert("please add your name")
   }
